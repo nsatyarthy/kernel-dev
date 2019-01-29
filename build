@@ -9,6 +9,7 @@ git checkout tags/v4.20
 # CONFIG_IKCONFIG_PROC places the complete kernel configuration file, compressed, at /proc/config.gz . 
 # So you can use that to build the custom kernel. 
 zcat /proc/config.gz > .config
+make oldconfig
 make
 
 # su root
