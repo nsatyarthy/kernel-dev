@@ -1,0 +1,15 @@
+# For building on Arch Linux. 
+# Don't use root. 
+
+cd ~/src/
+git clone https://github.com/nsatyarthy/linux.git
+cd linux
+git checkout tags/v4.20
+
+# CONFIG_IKCONFIG_PROC places the complete kernel configuration file, compressed, at /proc/config.gz . 
+# So you can use that to build the custom kernel. 
+zcat /proc/config.gz > .config
+make
+
+# su root
+make modules_install
