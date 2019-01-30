@@ -16,3 +16,7 @@ make
 # su root
 make modules_install
 cp -v arch/x86_64/boot/bzImage /boot/vmlinuz-linux-4.20-ns
+mkinitcpio -k 4.20-ns+ -g /boot/initramfs-linux-4.20-ns.img
+mv /boot/System.map /boot/System.map.bak
+cp System.map /boot/System.map
+grub-mkconfig -o /boot/grub/grub.cfg
